@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#########
 PROCESOS=$(ps aux | wc -l)
 echo "Reporte de procesos:
 Se están ejecutando $PROCESOS procesos."
