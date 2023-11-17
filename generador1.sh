@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "El generador de archivos se ha activado"
-
+##################
 INGRESO=$((RANDOM%3))
 #INGRESO=$1
 if [ $INGRESO == 0 ]
