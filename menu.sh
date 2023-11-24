@@ -6,7 +6,7 @@ select opcion in "Clasificar Archivos" "Monitorear Sistema" "Analizar Textos" "S
 do
  [ -z "$opcion" ] && echo "Elegir opcion valida!" && continue
  [ $REPLY == 1 ] && bash clasificar.sh && continue
- [ $REPLY == 2 ] && echo "Eligió Monitorear el sistema!" && continue
+ [ $REPLY == 2 ] && bash monitor.sh && continue
  [ $REPLY == 3 ] && echo "Eligió analizar textos!" && continue
  [ $REPLY == 4 ] && echo "Eligió salir!" && break
 
