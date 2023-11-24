@@ -17,6 +17,6 @@ else
         archivo=noise.png
 fi 
 
-hash=$(md5sum $archivo/ cut -d ' ' -f1)
+hash=$(md5sum $archivo | cut -d ' ' -f1)
 
 mv $archivo outputs_generador/$hash
