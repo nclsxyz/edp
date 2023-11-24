@@ -2,7 +2,7 @@
 
 mkdir -p outputs_generador/
 
-var=$((random%3))
+var=$((RANDOM%3))
 
 if [ $var -eq 0 ]; then 
 	base64 /dev/urandom | head -c 500 > file.txt
