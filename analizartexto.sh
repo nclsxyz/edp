@@ -1,5 +1,5 @@
 #!/bin/bash
-function  analizartexto {
+
 PS3='Elija> '
 echo "Hola, soy el analizador de texto. Que quiere hacer?"
 select opcion in "Palindromo" "Detector de mails" "Estadisticas" "Salir"
