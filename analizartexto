@@ -1,44 +1,18 @@
 #!/bin/bash
-  
-regex="/.txt?$"
+function  analizartexto {
+PS3='Elija> '
+echo "Hola, soy el analizador de texto. Que quiere hacer?"
+select opcion in "Palindromo" "Detector de mails" "Estadisticas" "Salir"
+do
+ [ -z "$opcion" ] && echo "Elegir opcion valida!" && continue
+ [ $REPLY == 1 ] && bash palindromo.sh && continue
+ [ $REPLY == 2 ] && bash mailAddressDetection.sh && continue
+ [ $REPLY == 3 ] && bash statsWords.sh && continue
+ [ $REPLY == 4 ] && echo "Eligió salir!" && break
 
-if [[ $1 =~ $regex ]]; then
+ echo "Opcion elegida: " $opcion
+done
 
-	mas_larga_len=0
-	mas_corta_len=0
-	palabras= wc -w $1
-	total_letras= wc -m $1
+exit 0
 
-	for i in "cat $1" do
-		len=${#i}
-		if [ $len > $mas_larga_len ]; then
-			mas_larga_len=$len
-			mas_larga=$i 
-		fi
-		if [ $len -le $mas_corta_len ]; then
-			mas_corta_len=$len
-			mas_corta=$i
-		else: 
-			continue
 
-		fi
-	done
-
-	promedio=$(($total_letras/$palabras))
-
-	echo "La palabra más corta en {$1} es: {$mas_corta}." 
-	echo "La palabra más larga en {$1} es: {$mas_larga}."
-	echo "El promedio de longitud de palabras en {$1} es: {$promedio}."
-
-if [[ $1 =~ $regex ]]; then 
-
-	for word in $( cat $1 ) do
-		if [ "$word" == "$(rev $word)" ]; then
-			echo "$word es palíndromo."
-		fi
-	done
-
-# echo -n "$str" | tac -s' '
- 
-
-grep -o '[[:alnum:]+\.\_\-]*@[[:alnum:]+\.\_\-]*' "$1" | sort | uniq -i 
