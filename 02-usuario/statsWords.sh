@@ -9,7 +9,7 @@ if [[ $1 =~ $regex ]]; then
 	palabras= wc -w $1
 	total_letras= wc -m $1
 
-	for i in "cat $1" do
+	for i in $("cat $1"); do
 		len="${#i}"
 		if [ $len > $mas_larga_len ]; then
 			mas_larga_len=$len
