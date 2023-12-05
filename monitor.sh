@@ -17,7 +17,7 @@ uso_cpu=$(top -b -n 1 | awk '/%Cpu/{print $2}')
 echo "Uso de CPU: $uso_cpu%"
 
 # Obtener el uso de RAM
-uso_ram=$(free -m)
+uso_ram=$(free -m | awk '/Mem/{print $3}')
 echo "Uso de RAM: $uso_ram MB"
 
 # Obtener el número de procesos en ejecución
