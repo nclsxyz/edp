@@ -6,8 +6,8 @@ if [[ $1 =~ $regex ]]; then
 
 	mas_larga_len=0
 	mas_corta_len=0
-	palabras= wc -w $1
-	total_letras= wc -m $1
+	palabras=$(wc -w "$1" | awk '{print $1}'
+ 	total_letras=$(wc -m "$1" | awk '{print $1}'
 
 	for i in $("cat $1"); do
 		len="${#i}"
