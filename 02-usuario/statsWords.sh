@@ -29,3 +29,4 @@ if [[ $1 =~ $regex ]]; then
 	echo "La palabra más corta en {$1} es: {$mas_corta}." 
 	echo "La palabra más larga en {$1} es: {$mas_larga}."
 	echo "El promedio de longitud de palabras en {$1} es: {$promedio}."
+fi
