@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Directorio donde se guardará el informe
+directorio_informe="outputs"
+
+# Verificar si el directorio existe, si no, crearlo
+if [ ! -d "$directorio_informe" ]; then
+    mkdir "$directorio_informe"
+fi
+
 # Obtener la fecha y hora actual para el nombre del archivo de informe
 timestamp=$(date +"%d_%m_%Y:%H_%M_%S")
 informe="outputs/report_$timestamp.txt"
