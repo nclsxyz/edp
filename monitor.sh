@@ -14,15 +14,18 @@ informe="outputs/report_$timestamp.txt"
 
 # Obtener el uso de CPU
 uso_cpu=$(top -b -n 1 | awk '/%Cpu/{print $2}')
+echo "Uso de CPU: $uso_cpu%"
 
 # Obtener el uso de RAM
 uso_ram=$(free -m)
+echo "Uso de RAM: $uso_ram MB"
 
 # Obtener el número de procesos en ejecución
 num_procesos=$(ps aux | wc -l)
 
 # Obtener el espacio libre en el disco
 espacio_libre=$(df -h /)
+echo "Espacio libre en el disco: $espacio_libre"
 
 # Crear el informe con los datos recopilados
 echo "Uso de CPU: $uso_cpu%" > "$informe"
