@@ -22,6 +22,7 @@ echo "Uso de RAM: $uso_ram MB"
 
 # Obtener el número de procesos en ejecución
 num_procesos=$(ps aux | wc -l)
+echo "Número de procesos en ejecución: $num_procesos"
 
 # Obtener el espacio libre en el disco
 espacio_libre=$(df -h /)
