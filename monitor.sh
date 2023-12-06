@@ -25,7 +25,7 @@ num_procesos=$(ps aux | wc -l)
 echo "Número de procesos en ejecución: $num_procesos"
 
 # Obtener el espacio libre en el disco
-espacio_libre=$(df -h /)
+espacio_libre=$(df -h / | awk 'NR==2 {print $4}')
 echo "Espacio libre en el disco: $espacio_libre"
 
 # Crear el informe con los datos recopilados
