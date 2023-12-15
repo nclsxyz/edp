@@ -5,8 +5,8 @@
 
 ```
 $ cd 01-generador/
-$ docker build ...
-$ docker run ...
+$ sudo docker build --tag edp .
+$ sudo docker run -v $PWD/outputs_generador/:/outputs_generador -it --privileged edp
 ```
 
 ## usuario
