@@ -11,9 +11,14 @@ do
     elif [ $REPLY -eq 2 ]; then
         bash monitor.sh
     elif [ $REPLY -eq 3 ]; then
-        echo "Elegiste Analizar Textos."
-        read -p "Por favor, ingresa el nombre del archivo de texto: " archivo_de_texto
-        bash analizartexto.sh "$archivo_de_texto"
+        echo -e  "Elegiste Analizar Textos.\nRecuerde sólo ingresar archivos .txt "
+	read -p "Por favor, ingresa el nombre del archivo de texto: " archivo_de_texto
+	if [[ $archivo_de_texto =~ \.txt$ ]];
+	then
+		bash analizartexto.sh "$archivo_de_texto"
+	else
+		echo "$archivo_de_texto no es un archivo .txt! Intente nuevamente."
+	fi
     elif [ $REPLY -eq 4 ]; then
         echo "Elegiste salir!"
         break

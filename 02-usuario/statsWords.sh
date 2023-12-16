@@ -1,5 +1,4 @@
 #!/bin/bash
-#<<<<<<< HEAD
 
 regex=".txt?$"
 
@@ -12,7 +11,7 @@ if [[ $1 =~ $regex ]]; then
     palabras=0
 
     # Utilizamos un bucle while para leer cada palabra del archivo
-    while read -r palabra; do
+    while read -r -a palabra; do
         len="${#palabra}"
         total_letras=$((total_letras + len))
         palabras=$((palabras + 1))
@@ -39,4 +38,4 @@ if [[ $1 =~ $regex ]]; then
     else
         echo "El archivo está vacío."
     fi
-fi 
+fi
