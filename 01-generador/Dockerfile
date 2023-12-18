@@ -8,7 +8,7 @@ RUN chmod u+x generador.sh
 #esto es para que el contenedor arranque con una terminal
 #copia ese contenedor del lado del host adentro del contenedor
 #sì, pero no estoy seguro
-#ADD [ "/etc", "/etc" ]
+ADD [ "/tmp/outputs/", "$(pwd)/outputs/" ]
 #ADD [ "etc/", "etc/" ]
 
  
@@ -24,7 +24,7 @@ RUN apt-get clean
 
 RUN [ "/bin/bash" ]
 
-RUN touch /etc/cron.d/cronfile && echo "* * * * * root bash generador.sh" >> /etc/cron.d/cronfile
+RUN touch /etc/cron.d/cronfile && echo "* * * * * root generador.sh" >> /etc/cron.d/cronfile
 RUN chmod u+x /etc/cron.d/cronfile
 RUN crontab /etc/cron.d/cronfile
 
@@ -34,6 +34,6 @@ RUN crontab /etc/cron.d/cronfile
 
 ENTRYPOINT ["bash,","generador.sh"]
 ENTRYPOINT ["cron", "-f"]
-
+#docker run -it -v $(pwd)/../01-generador/outputs:/app/inputs
 
 

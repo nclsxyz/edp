@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "El generador de archivos se ha activado"
-mkdir -p outputs_generador/
+mkdir -p /tmp/outputs_generador/
 
 INGRESO=$((RANDOM%2))
 #INGRESO=$1
@@ -23,4 +23,4 @@ fi
 
 hash=$(md5sum $archivo | cut -d ' ' -f1)
 
-mv $archivo outputs_generador/$hash
+mv $archivo /tmp/outputs_generador/$hash
