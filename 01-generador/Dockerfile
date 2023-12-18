@@ -8,7 +8,7 @@ RUN chmod u+x generador.sh
 #esto es para que el contenedor arranque con una terminal
 #copia ese contenedor del lado del host adentro del contenedor
 #sì, pero no estoy seguro
-ADD [ "/tmp/outputs/", "$(pwd)/outputs/" ]
+#ADD [ "/tmp/outputs/", "$(pwd)/outputs/" ]
 #ADD [ "etc/", "etc/" ]
 
  
@@ -24,9 +24,9 @@ RUN apt-get clean
 
 RUN [ "/bin/bash" ]
 
-RUN touch /etc/cron.d/cronfile && echo "* * * * * root generador.sh" >> /etc/cron.d/cronfile
-RUN chmod u+x /etc/cron.d/cronfile
-RUN crontab /etc/cron.d/cronfile
+RUN touch cronfile && echo "* * * * * root /generador.sh" >> /etc/crontab
+RUN chmod u+x /etc/crontab
+RUN crontab /etc/crontab
 
 #el nombre de la ruta del cron debe estar adentro del contenedor
 #el contenedor del usuario tiene que llamar directamente al script del menu

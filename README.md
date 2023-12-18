@@ -6,7 +6,7 @@
 ```
 $ cd 01-generador/
 $ sudo docker build --tag edp1 .
-$ sudo docker run -v $PWD/outputs_generador/:/outputs_generador -it --privileged edp1
+sudo docker run -v $PWD/outputs_generador/:/tmp/outputs_generador -it --privileged edp
 ```
 
 ## usuario
@@ -14,7 +14,7 @@ $ sudo docker run -v $PWD/outputs_generador/:/outputs_generador -it --privileged
 ```
 $ cd 02-usuario/
 $ sudo docker build --tag edp2
-$ sudo docker run -v $(pwd)/../01-generador/outputs_generador/:/app/inputs -v $(pwd)/textos/:/app/textos/ -v $(pwd)/outputs_usuario/:/app/outputs -it --privileged
+$ s```udo docker run -v $(pwd)/../01-generador/outputs_generador/:/app/inputs -v $(pwd)/textos/:/app/textos/ -v $(pwd)/outputs_usuario/:/app/outputs -it --privileged
 
 ```  
 ###=======
