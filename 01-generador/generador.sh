@@ -2,7 +2,7 @@
 echo "El generador de archivos se ha activado"
 mkdir -p /tmp/outputs_generador/
 
-INGRESO=$((RANDOM%2))
+INGRESO=$((RANDOM%3))
 #INGRESO=$1
 if [ $INGRESO == 0 ]
 then
@@ -14,10 +14,10 @@ then
 	ffmpeg -y -f lavfi -i "anoisesrc=a=0.1:c=white:duration=5" out.wav 2> /dev/null 1> /dev/null
 	echo "se ha creado un archivo de audio"
 	archivo=out.wav
-elif [ $INGRESO -eq 2 ]
+elif [ $INGRESO == 2 ]
 then
 	convert -size 100x100 xc: +noise Random noise.png
-	echo "se ha creado un archivo de sonido"
+	echo "se ha creado un archivo de imagen"
 	archivo=noise.png
 fi
 

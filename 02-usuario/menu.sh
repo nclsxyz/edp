@@ -7,7 +7,7 @@ do
     [ -z "$opcion" ] && echo "Elegir opción válida!" && continue
 
     if [ $REPLY -eq 1 ]; then
-        bash clasificar.sh
+        bash clasificador.sh
     elif [ $REPLY -eq 2 ]; then
         bash monitor.sh
     elif [ $REPLY -eq 3 ]; then

@@ -1,23 +1,23 @@
 #!/bin/bash
 
 # Directorio donde se guardará el informe
-directorio_informe="outputs"
+directorio_informe="/app/outputs"
 
-# Verificar si el directorio existe, si no, crearlo
+# Verificar si el directorio existe, sino, crearlo
 if [ ! -d "$directorio_informe" ]; then
     mkdir "$directorio_informe"
 fi
 
 # Obtener la fecha y hora actual para el nombre del archivo de informe
 timestamp=$(date +"%d_%m_%Y:%H_%M_%S")
-informe="outputs/report_$timestamp.txt"
+informe="/app/outputs/report_$timestamp.txt"
 
 # Obtener el uso de CPU
 uso_cpu=$(top -b -n 1 | awk '/%Cpu/{print $2}')
 echo "Uso de CPU: $uso_cpu%"
 
 # Obtener el uso de RAM
-uso_ram=$(free -m | awk '/Mem/{print $3}')
+uso_ram=$(free --mega | awk '/Mem/{print $3}')
 echo "Uso de RAM: $uso_ram MB"
 
 # Obtener el número de procesos en ejecución

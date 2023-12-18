@@ -12,10 +12,9 @@ sudo docker run -v $PWD/outputs_generador/:/tmp/outputs_generador -it --privileg
 ## usuario
 
 ```
-$ cd 02-usuario/
-$ sudo docker build --tag edp2
-$ s```udo docker run -v $(pwd)/../01-generador/outputs_generador/:/app/inputs -v $(pwd)/textos/:/app/textos/ -v $(pwd)/outputs_usuario/:/app/outputs -it --privileged
-
+cd 02-usuario/
+sudo docker build --tag edp2 .
+sudo docker run -v $(pwd)/../01-generador/outputs_generador/:/app/inputs -v /../$(pwd)/textos/:/app/textos/ -v $(pwd)/outputs_clasificador/:/app/outputs -it --privilegededp2 
 ```  
 ###=======
 # edp
