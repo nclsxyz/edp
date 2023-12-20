@@ -1,6 +1,6 @@
 #!/bin/bash 
 echo "Bienvenido al clasificador de archivos. Aguarde mientras se procesan los archivos"
-inputs="/app/inputs"
+inputs="/app/inputs/"
 
 mkdir -p /app/outputs/
 mkdir -p /app/outputs/txt/ 
@@ -15,7 +15,7 @@ for i in $inputs/*
 do
 	FILENAME=$(basename $i)
 	echo $i
-       	dwnld=$(file $i) # archivos de la carpeta
+      	dwnld=$(file $i) # archivos de la carpeta
 	echo $dwnld
 	if [[ $dwnld =~ "ASCII" ]]; then
 		echo "archivo de texto"
